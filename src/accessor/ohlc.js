@@ -8,39 +8,39 @@ export default () => {
 
   const accessor = d => accessor.c(d);
 
-  accessor.date = _ => {
-    if (!arguments.length) return date;
-    date = _;
+  accessor.date = (..._) => {
+    if (!_.length) return date;
+    date = _[0];
     return bind();
   };
 
-  accessor.open = _ => {
-    if (!arguments.length) return open;
-    open = _;
+  accessor.open = (..._) => {
+    if (!_.length) return open;
+    open = _[0];
     return bind();
   };
 
-  accessor.high = _ => {
-    if (!arguments.length) return high;
-    high = _;
+  accessor.high = (..._) => {
+    if (!_.length) return high;
+    high = _[0];
     return bind();
   };
 
-  accessor.low = _ => {
-    if (!arguments.length) return low;
-    low = _;
+  accessor.low = (..._) => {
+    if (!_.length) return low;
+    low = _[0];
     return bind();
   };
 
-  accessor.close = _ => {
-    if (!arguments.length) return close;
-    close = _;
+  accessor.close = (..._) => {
+    if (!_.length) return close;
+    close = _[0];
     return bind();
   };
 
-  accessor.volume = _ => {
-    if (!arguments.length) return volume;
-    volume = _;
+  accessor.volume = (..._) => {
+    if (!_.length) return volume;
+    volume = _[0];
     return bind();
   };
 

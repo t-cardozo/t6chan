@@ -1,5 +1,7 @@
+import ohlc from "./ohlc";
+
 export default () => {
   return {
-    ohlc: import("ohlc")
+    ohlc: ohlc
   };
 };
