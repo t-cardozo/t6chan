@@ -1,0 +1,27 @@
+{
+  "name": "t6chan",
+  "version": "0.0.1",
+  "description": "techanjs reconstructed with canvas using ES6/webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "keywords": [
+    "techan",
+    "js",
+    "t6chan"
+  ],
+  "author": "Troy Cardozo",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "latest"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  }
+}

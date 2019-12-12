@@ -1,0 +1,6 @@
+BUG:
+
+TODO before monday hopefully:
+Resize annotations based on how much text there is on it.. 
+Add 15 minute refresh 
+

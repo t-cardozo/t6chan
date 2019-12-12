@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Improved Techan Chart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+    <script src="./lib/d3.v4.min.js"></script>
+    <script src="./lib/techan.js"></script>
+    <script src="./config.js"></script>
+    <script src="./lib/chart_module_indicator_pe.js"></script>
+    <script src="./lib/notes_fnc.js"></script>
+</head>
+
+<body>
+    <script>
+        var chart_api = {}
+    </script>
+    <form>
+        <fieldset>
+            <legend>Line:</legend>
+            <label for="lineType">Line Type:</label>
+            <select id='lineType'>
+                <option value="candle">Candle</option>
+                <option value="close">Line</option>
+                <option value="ohlc">OHLC</option>
+                <option value="heikinashi">Heikin Ashi</option>
+            </select><br>
+            Target Price: <input type="checkbox" id="tpDisplay" name="tpDisplay"><br>
+            (todo) grid x:<input type="checkbox" id="gridxDisplay" name="gridxDisplay" checked><br>
+            (todo) grid y:<input type="checkbox" id="gridyDisplay" name="gridyDisplay" checked><br>
+            R/S Lines:<input type="checkbox" id="r_sDisplay" name="r_sDisplay"><br>
+            <input type="button" id="btn-tl-s" value="Add Line">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>MA:</legend>
+            On/Off: <input type="checkbox" id="maDisplay" name="maDisplay" checked>
+            <br>
+            <label for="maOptions">MA Type:</label>
+            <select id='maOptions'>
+                <option value="sma">SMA</option>
+                <option value="ema">EMA</option>
+                <option value="none">none</option>
+            </select><br>
+
+            MA0 <input type="input" value="20" id="maInput" name="scdInput">
+            <input type="checkbox" id="maCheck" checked><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>EPS:</legend>
+            EPS: <input type="checkbox" id="epsDisplay" data-eps="eps" class="allepsDisplay" name="epsDisplay" checked><br>
+            Rolling 1: <input type="checkbox" id="roll1Display" data-eps="epsrolling1" class="allepsDisplay" name="roll1Display"><br>
+            Rolling 2: <input type="checkbox" id="roll2Display" data-eps="epsrolling2" class="allepsDisplay" name="roll2Display"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Indicators:</legend>
+            Volume: <input type="checkbox" id="volumeDisplay" data-indicator="volume" class="indicatorDisplay" name="volumeDisplay">
+            <select id='volumeType'>
+                <option value="volume">Volume</option>
+                <option value="tradevalue">Value</option>
+            </select><br>
+            ATR: <input type="checkbox" id="atrDisplay" data-indicator="atr" class="indicatorDisplay" name="atrDisplay"><input type="input" value="20" id="atrPeriod"><br>
+            MACD: <input type="checkbox" id="macdDisplay" data-indicator="macd" name="macdDisplay" class="indicatorDisplay" checked><br>
+            RSI: <input type="checkbox" id="rsiDisplay" data-indicator="rsi" class="indicatorDisplay" name="rsiDisplay" checked><br>
+            Williams %R: <input type="checkbox" id="williamsDisplay" data-indicator="williams" class="indicatorDisplay" name="williamsDisplay"><br>
+            ADX: <input type="checkbox" id="adxDisplay" data-indicator="adx" class="indicatorDisplay" name="adxDisplay"><br>
+            Aroon: <input type="checkbox" id="aroonDisplay" data-indicator="aroon" class="indicatorDisplay" name="aroonDisplay"><br>
+            Stochastic: <input type="checkbox" id="stochasticDisplay" data-indicator="stochastic" class="indicatorDisplay" name="stochasticDisplay"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Events:</legend>
+            Company News:<input type="checkbox" id="cnewsDisplay" name="cnewsDisplay"><br>
+            Divideneds:<input type="checkbox" id="dividDisplay" name="dividDisplay" checked><br>
+            Flash:<input type="checkbox" id="flashDisplay" name="flashDisplay" checked><br>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Symbol:</legend>
+            SCD: <input type="input" value="ALL" id="scdInput" name="scdInput"><br>
+            <input type="button" id="changeSymbol" value="Change Symbol">
+        </fieldset>
+
+
+
+        <fieldset>
+            <legend>Monitors:</legend>
+            volumespke: <input type="checkbox" id="big_candle_yes"><br>
+            extreme_overbought: <input type="checkbox" id="extreme_overbought_yes"><br>
+            fakey_shakey_-_short: <input type="checkbox" id="fakey_shakey_-_short_yes"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Trades:</legend>
+            trading: <input type="checkbox" id="trading"><br>
+            investing: <input type="checkbox" id="investing"><br>
+        </fieldset>
+    </form>
+    </section>
+
+    <input type="button" id="redrawChart" value="Redraw">
+
+</body>
+
+</html>
+
+<style>
+    fieldset {
+        width: 10%;
+        float: left;
+    }
+</style>
